@@ -27,9 +27,9 @@ public class Rhmr implements ClientModInitializer {
 
     RESOURCE_PACK_WATCHER.start();
 
-    ResourceLoader.get(PackType.CLIENT_RESOURCES).registerReloader(
+    ResourceLoader.get(PackType.CLIENT_RESOURCES).registerReloadListener(
         RELOADER_ID,
-        (ResourceManagerReloadListener) manager -> RESOURCE_PACK_WATCHER.refresh()
+        (ResourceManagerReloadListener) _ -> RESOURCE_PACK_WATCHER.refresh()
     );
 
     ClientLifecycleEvents.CLIENT_STOPPING.register(client -> RESOURCE_PACK_WATCHER.stop());

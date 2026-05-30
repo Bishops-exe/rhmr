@@ -4,7 +4,7 @@ import me.bishops_exe.rhmr.Rhmr;
 import me.bishops_exe.rhmr.config.Config;
 import me.bishops_exe.rhmr.utils.LoadingFrames;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.gui.GuiGraphics;
+import net.minecraft.client.gui.GuiGraphicsExtractor;
 import net.minecraft.client.gui.screens.LoadingOverlay;
 import net.minecraft.client.resources.language.I18n;
 import net.minecraft.network.chat.Component;
@@ -29,7 +29,7 @@ public class LoadingOverlayMixin {
   private Minecraft minecraft;
 
   @Inject(
-      method = "rrls$miniRender(Lnet/minecraft/client/gui/GuiGraphics;F)V",
+      method = "rrls$miniRender(Lnet/minecraft/client/gui/GuiGraphicsExtractor;F)V",
       at = @At(
           value = "INVOKE",
           target = "Lnet/minecraft/util/ARGB;color(IIII)I",
@@ -37,7 +37,7 @@ public class LoadingOverlayMixin {
       ),
       cancellable = true
   )
-  private void rhmr$beforeSwitch(GuiGraphics ctx, float partialTick, CallbackInfo ci) {
+  private void rhmr$beforeSwitch(GuiGraphicsExtractor ctx, float partialTick, CallbackInfo ci) {
     Config config = Rhmr.CONFIG;
     LoadingFrames frames = Rhmr.LOADING_FRAMES;
 
@@ -69,7 +69,7 @@ public class LoadingOverlayMixin {
       }
 
 
-      ctx.drawString(
+      ctx.text(
           minecraft.font,
           Component.translatable(translateKey),
           textX,
@@ -82,7 +82,7 @@ public class LoadingOverlayMixin {
   }
 
   @Unique
-  private void rhmr$drawPixel(GuiGraphics ctx, Vector2i pos, int scale, int color) {
+  private void rhmr$drawPixel(GuiGraphicsExtractor ctx, Vector2i pos, int scale, int color) {
     ctx.fill(pos.x, pos.y, pos.x + scale, pos.y + scale, color);
   }
 }
