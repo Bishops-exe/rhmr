@@ -1,0 +1,12 @@
+{
+  "rhmr.reloaded": "Reloaded!",
+  "yacl3.config.rhmr:cfg.category.main": "Main",
+  "yacl3.config.rhmr:cfg.enabled": "Enabled",
+  "yacl3.config.rhmr:cfg.category.main.group.reload_indicator": "Reload indicator",
+  "yacl3.config.rhmr:cfg.padding": "Padding",
+  "yacl3.config.rhmr:cfg.location": "Location",
+  "yacl3.config.enum.ReloadIndicatorLocation.top_left": "Top left",
+  "yacl3.config.enum.ReloadIndicatorLocation.top_right": "Top right",
+  "yacl3.config.enum.ReloadIndicatorLocation.bottom_left": "Bottom left",
+  "yacl3.config.enum.ReloadIndicatorLocation.bottom_right": "Bottom right"
+}
