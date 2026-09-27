@@ -1,4 +1,6 @@
 {
   "yacl3.config.rhmr:cfg.category.main": "Main",
-  "yacl3.config.rhmr:cfg.enabled": "Enabled"
+  "yacl3.config.rhmr:cfg.enabled": "Enabled",
+  "yacl3.config.rhmr:cfg.debounce": "Debounce",
+  "yacl3.config.rhmr:cfg.debounce.description": "Debounce in Seconds"
 }

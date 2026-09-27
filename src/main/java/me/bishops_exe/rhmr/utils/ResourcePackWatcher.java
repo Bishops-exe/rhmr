@@ -26,7 +26,6 @@ import org.slf4j.LoggerFactory;
 public class ResourcePackWatcher {
 
   private static final Logger LOGGER = LoggerFactory.getLogger("rhmr");
-  private static final long DEBOUNCE_MS = 500;
 
   private WatchService watchService;
   private ScheduledExecutorService executor;
@@ -167,14 +166,17 @@ public class ResourcePackWatcher {
     if (reloadPending || !Rhmr.CONFIG.enabled) {
       return;
     }
+
+    TimeAmount amount = Rhmr.CONFIG.getDebounce();
+
     reloadPending = true;
     executor.schedule(
-        () -> {
-          Minecraft mc = Minecraft.getInstance();
-          mc.execute(mc::reloadResourcePacks);
-        },
-        DEBOUNCE_MS,
-        TimeUnit.MILLISECONDS
+            () -> {
+              Minecraft mc = Minecraft.getInstance();
+              mc.execute(mc::reloadResourcePacks);
+            },
+            amount.amount(),
+            amount.unit()
     );
   }
 
