@@ -46,11 +46,8 @@ dependencies {
     implementation "net.fabricmc:fabric-loader:${project.loader_version}"
 
     implementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}+${project.minecraft_version}"
-    implementation "maven.modrinth:rrls:${project.rrls_version}+mc${project.minecraft_version}-fabric"
     implementation "dev.isxander:yet-another-config-lib:${project.yacl_version}+${project.minecraft_version}-fabric"
     implementation "com.terraformersmc:modmenu:${project.modmenu_version}"
-    // required by rrls
-    localRuntime "fuzs.forgeconfigapiport:forgeconfigapiport-fabric:${project.forgeconfigapiport_version}"
 }
 
 processResources {
@@ -63,7 +60,6 @@ processResources {
         expand "version": project.version,
                 "minecraft_version": project.minecraft_version,
                 "loader_version": project.loader_version,
-                "rrls_version": project.rrls_version,
                 "yacl_version": project.yacl_version,
                 "modmenu_version": project.modmenu_version
     }
