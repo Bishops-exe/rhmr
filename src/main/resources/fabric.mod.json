@@ -17,9 +17,6 @@
       "me.bishops_exe.rhmr.config.ModMenuIntegration"
     ]
   },
-  "mixins": [
-    "rhmr.mixins.json"
-  ],
   "depends": {
     "fabricloader": ">=${loader_version}",
     "fabric-api": "*",
