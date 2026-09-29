@@ -52,16 +52,16 @@ dependencies {
 
 processResources {
     inputs.property "version", project.version
-    inputs.property "minecraft_version", project.minecraft_version
+    inputs.property "minecraft_version_checks", project.minecraft_version_checks
     inputs.property "loader_version", project.loader_version
+    inputs.property "yacl_version", project.yacl_version
     filteringCharset "UTF-8"
 
     filesMatching("fabric.mod.json") {
         expand "version": project.version,
-                "minecraft_version": project.minecraft_version,
+                "minecraft_version_checks": project.minecraft_version_checks,
                 "loader_version": project.loader_version,
-                "yacl_version": project.yacl_version,
-                "modmenu_version": project.modmenu_version
+                "yacl_version": project.yacl_version
     }
 }
 
